@@ -1,0 +1,12 @@
+[load] CHARLS raw n=10800 | file=C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\01_raw_data\charls2018 20250906.csv
+[age-filter] use column 'agey', min=60.0 -> kept 10800/10800 (dropped 0)
+[after age-filter] n=10800
+[cesd dropna] kept 9639/10800 rows (dropped 1161)
+[overlap] train/val/test disjoint = True
+train n=  6747  pos_rate=0.381
+  val n=  1446  pos_rate=0.381
+ test n=  1446  pos_rate=0.381
+Saved -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\splits
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\03_split_charls.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

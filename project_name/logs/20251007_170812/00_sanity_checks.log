@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\00_sanity_checks.py", line 30, in <module>
+    PROJECT_ROOT = Path(CFG["paths"]["project_root"])
+                        ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'project_root'
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\00_sanity_checks.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

@@ -1,0 +1,36 @@
+{
+    "subtitle": "版本：{ver} ｜ 阈值：{thr}",
+    "tab_single": "单个受试者",
+    "tab_batch": "批量预测（CSV）",
+    "tab_about": "说明",
+    "sec_fill": "1）填写变量",
+    "btn_predict": "计算风险",
+    "pred_prob": "预测概率",
+    "risk_label": "风险分层",
+    "label_high": "高风险",
+    "label_low": "低风险",
+    "exp_contrib": "查看特征贡献（仅LR）",
+    "xlabel_imp": "聚合后贡献",
+    "xlabel_logit": "对 logit 的贡献（正：升高风险；负：降低）",
+    "xlabel_feature": "特征（聚合后）",
+    "tip_only_lr": "当前模型并非LR，因此不展示线性贡献图。",
+    "sec_batch": "2）批量CSV上传",
+    "schema_hint": "CSV 至少包含部分原始字段（缺失自动按训练/验证策略处理）：",
+    "upload_csv": "上传 CSV",
+    "download_csv": "下载带预测的CSV",
+    "btn_template": "生成模板",
+    "download_template": "下载模板 template.csv",
+    "col_prob": "risk_prob",
+    "col_label": "risk_label",
+    "about_md": "本网页基于 CHARLS 数据训练的逻辑回归模型（含均值/众数插补、标准化和One-Hot）。阈值来自验证集（Youden+F1）。**本工具仅用于科研辅助，不构成临床诊断或治疗建议。**",
+    "field_labels": {
+      "agey": "年龄(岁)",
+      "ragender": "性别",
+      "raeducl": "受教育程度",
+      "rural": "城乡",
+      "adlfive": "ADL受限",
+      "smokev": "是否吸烟",
+      "drinkev": "是否饮酒"
+    }
+  }
+  

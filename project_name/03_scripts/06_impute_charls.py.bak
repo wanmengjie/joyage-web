@@ -1,0 +1,424 @@
+# -*- coding: utf-8 -*-
+r"""
+06_impute_charls.py — 只在 train 上拟合的稳定 MICE+PMM（CHARLS 主 + KLOSA 外部）
+
+做什么：
+1) 读取 03_split_charls.py 的三件套：02_processed_data/<VER>/splits/{charls_train,val,test}.csv
+   （以及可选的 klosa_external.csv）
+2) 只用 CHARLS 的 train 拟合插补器（避免数据泄漏），然后 transform 到 val/test/external
+3) 写两套输出：
+   a) 主线：selected_imputation/mice_pmm/{charls_train,val,test,klosa_external}.csv
+   b) 兼容：imputed/charls_{split}_{suffix}_Xy.csv
+4) 保存插补器与参数：imputers/mice_pmm/{imputer.joblib, params.json}
+
+用法：
+  python 06_impute_charls.py --suffix mice_pmm_rep1
+"""
+
+from __future__ import annotations
+import argparse
+from pathlib import Path
+from typing import List, Optional, Tuple
+
+import numpy as np
+import pandas as pd
+import yaml
+import joblib
+
+from sklearn.linear_model import BayesianRidge, LogisticRegression, SGDClassifier
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.neighbors import NearestNeighbors
+from sklearn.preprocessing import StandardScaler, LabelEncoder
+
+# ---------------- 通用配置头 ----------------
+def repo_root() -> Path:
+    return Path(__file__).resolve().parents[1]
+
+CFG = yaml.safe_load(open(repo_root() / "07_config" / "config.yaml", "r", encoding="utf-8"))
+
+PROJECT_ROOT = Path(CFG["paths"]["project_root"])
+VER  = CFG.get("run_id_out", CFG.get("run_id"))
+DATA_DIR = PROJECT_ROOT / "02_processed_data" / VER
+SPLITS   = DATA_DIR / "splits"
+SEL_DIR  = DATA_DIR / "selected_imputation" / "mice_pmm"
+IMPUTERS = DATA_DIR / "imputers" / "mice_pmm"
+IMPUTED  = DATA_DIR / "imputed"
+
+for p in [SEL_DIR, IMPUTERS, IMPUTED]:
+    p.mkdir(parents=True, exist_ok=True)
+
+RANDOM_STATE = int(CFG.get("seed", CFG.get("random_state", 42)))
+Y_NAME  = (CFG.get("outcome", {}) or {}).get("name", "depression_bin")
+ID_COLS = list(CFG.get("ids", ["ID", "householdID"]))
+
+# ---------------- 数据清洗辅助 ----------------
+def _coerce_numeric_like(df: pd.DataFrame, exclude: list[str]) -> pd.DataFrame:
+    """把“看起来像数字”的 object 列尽可能转成数值；保留纯文本/混合类别为 object。"""
+    out = df.copy()
+    for c in out.columns:
+        if c in exclude:
+            continue
+        s = out[c]
+        if pd.api.types.is_object_dtype(s):
+            # 粗判：抽样 100 个非缺值，若 >=80% 形似数字，则尝试 to_numeric
+            samp = s.dropna().astype(str).head(100)
+            if len(samp) == 0:
+                continue
+            def _is_numlike(x: str) -> bool:
+                x = x.strip().replace(",", "")
+                if x in ("", ".", "-", "NA", "NaN", "nan", "None"):
+                    return True
+                try:
+                    float(x)
+                    return True
+                except Exception:
+                    return False
+            ratio = np.mean([_is_numlike(x) for x in samp])
+            if ratio >= 0.8:
+                out[c] = pd.to_numeric(s, errors="coerce")
+    return out
+
+# ---------------- 稳定分类器（用于分类变量的条件模型） ----------------
+def _make_stable_classifier(n_classes: int):
+    if n_classes <= 2:
+        return LogisticRegression(
+            solver="liblinear", penalty="l2",
+            max_iter=200, tol=1e-3, warm_start=True,
+            class_weight="balanced", random_state=RANDOM_STATE,
+        )
+    else:
+        return LogisticRegression(
+            solver="lbfgs", penalty="l2",
+            max_iter=200, tol=1e-3, warm_start=True,
+            multi_class="auto", random_state=RANDOM_STATE,
+        )
+
+def _fallback_classifier():
+    return SGDClassifier(
+        loss="log_loss", early_stopping=True, n_iter_no_change=5,
+        max_iter=2000, tol=1e-3, class_weight="balanced",
+        random_state=RANDOM_STATE,
+    )
+
+# ---------------- PMM 核心 ----------------
+def _pmm_numeric(y_obs_pred, y_mis_pred, y_obs_true, k=5, rng=None):
+    rng = rng or np.random.default_rng(RANDOM_STATE)
+    y_obs_pred = np.asarray(y_obs_pred).reshape(-1, 1)
+    y_mis_pred = np.asarray(y_mis_pred).reshape(-1, 1)
+    if len(y_obs_pred) < 1:
+        return np.repeat(np.nan, len(y_mis_pred))
+    nn = NearestNeighbors(n_neighbors=max(1, min(k, len(y_obs_pred))), metric="euclidean")
+    nn.fit(y_obs_pred)
+    idxs = nn.kneighbors(y_mis_pred, return_distance=False)
+    return np.asarray([y_obs_true[rng.choice(row)] for row in idxs])
+
+def _pmm_categorical(P_obs, P_mis, y_obs_true, k=5, rng=None):
+    rng = rng or np.random.default_rng(RANDOM_STATE)
+    if len(P_obs) < 1:
+        return np.repeat(np.nan, len(P_mis))
+    nn = NearestNeighbors(n_neighbors=max(1, min(k, len(P_obs))), metric="euclidean")
+    nn.fit(P_obs)
+    idxs = nn.kneighbors(P_mis, return_distance=False)
+    return np.asarray([y_obs_true[rng.choice(row)] for row in idxs], dtype=int)
+
+# ---------------- MICE + PMM 主体 ----------------
+def mice_pmm_once(
+    X: pd.DataFrame,
+    num_cols: List[str],
+    bin_cols: List[str],
+    mul_cols: List[str],
+    max_iter: int = 5,
+    seed: Optional[int] = RANDOM_STATE,
+    k_pmm: int = 5,
+    use_rf_for_numeric: bool = False,
+) -> pd.DataFrame:
+    rng = np.random.default_rng(seed)
+    X_imp = X.copy()
+
+    # 初始填补
+    for c in num_cols:
+        if X_imp[c].isna().any():
+            med = np.nanmedian(pd.to_numeric(X_imp[c], errors="coerce").values)
+            X_imp.loc[X_imp[c].isna(), c] = 0.0 if np.isnan(med) else med
+    for c in bin_cols + mul_cols:
+        if X_imp[c].isna().any():
+            vc = X_imp[c].value_counts(dropna=True)
+            X_imp.loc[X_imp[c].isna(), c] = (vc.index[0] if len(vc) else 0)
+
+    all_cols = [c for c in (num_cols + bin_cols + mul_cols) if c in X_imp.columns]
+
+    for it in range(max_iter):
+        print(f"[MICE] iteration {it+1}/{max_iter}", flush=True)
+        for target in all_cols:
+            others = [c for c in all_cols if c != target]
+            y = X[target].values  # 用原始 y 判定缺失位置
+            miss_mask = pd.isna(y)
+            obs_mask = ~miss_mask
+            if obs_mask.sum() == 0 or miss_mask.sum() == 0:
+                continue
+
+            X_obs_np = X_imp.loc[obs_mask, others].to_numpy(dtype=float, copy=True)
+            X_mis_np = X_imp.loc[miss_mask, others].to_numpy(dtype=float, copy=True)
+
+            finite_rows = np.isfinite(X_obs_np).all(axis=1)
+            if finite_rows.sum() < 2:
+                # 可退化为用众数/均值补
+                if target in num_cols:
+                    X_imp.loc[miss_mask, target] = np.nanmean(pd.to_numeric(y[obs_mask], errors="coerce"))
+                else:
+                    y_obs_int = pd.to_numeric(y[obs_mask], errors="coerce").astype(np.int64)
+                    y_obs_int = y_obs_int[~np.isnan(y_obs_int)]
+                    if len(y_obs_int):
+                        X_imp.loc[miss_mask, target] = int(np.bincount(y_obs_int).argmax())
+                continue
+
+            X_obs_np = X_obs_np[finite_rows]
+            y_obs_full = pd.to_numeric(y[obs_mask], errors="coerce")[finite_rows]
+
+            if target in num_cols:
+                try:
+                    if use_rf_for_numeric:
+                        reg = RandomForestRegressor(
+                            n_estimators=400, min_samples_leaf=5,
+                            random_state=RANDOM_STATE, n_jobs=-1
+                        )
+                        X_obs_sc, X_mis_sc = X_obs_np, X_mis_np
+                    else:
+                        reg = BayesianRidge()
+                        scaler = StandardScaler(with_mean=True, with_std=True)
+                        X_obs_sc = scaler.fit_transform(X_obs_np)
+                        X_mis_sc = scaler.transform(X_mis_np)
+                    reg.fit(X_obs_sc, y_obs_full)
+                    y_obs_pred = reg.predict(X_obs_sc)
+                    y_mis_pred = reg.predict(X_mis_sc)
+                    donors = _pmm_numeric(y_obs_pred, y_mis_pred, y_obs_full, k=k_pmm, rng=rng)
+                    X_imp.loc[miss_mask, target] = donors
+                except Exception:
+                    X_imp.loc[miss_mask, target] = np.nanmean(y_obs_full)
+            else:
+                y_obs_int = pd.to_numeric(y_obs_full, errors="coerce").astype(int)
+                uniq = np.unique(y_obs_int)
+                if uniq.size < 2:
+                    maj = int(np.bincount(y_obs_int).argmax()) if len(y_obs_int) else 0
+                    X_imp.loc[miss_mask, target] = maj
+                    continue
+                clf = _make_stable_classifier(int(uniq.size))
+                try:
+                    clf.fit(X_obs_np, y_obs_int)
+                except Exception:
+                    try:
+                        clf = _fallback_classifier()
+                        clf.fit(X_obs_np, y_obs_int)
+                    except Exception:
+                        X_imp.loc[miss_mask, target] = int(np.bincount(y_obs_int).argmax())
+                        continue
+                try:
+                    P_obs = clf.predict_proba(X_obs_np)
+                    P_mis = clf.predict_proba(X_mis_np)
+                except Exception:
+                    f_obs = np.atleast_2d(clf.decision_function(X_obs_np))
+                    f_mis = np.atleast_2d(clf.decision_function(X_mis_np))
+                    if f_obs.ndim == 1 or f_obs.shape[1] == 1:
+                        sig = lambda z: 1.0/(1.0+np.exp(-z))
+                        p1_obs, p1_mis = sig(f_obs.ravel()), sig(f_mis.ravel())
+                        P_obs = np.vstack([1-p1_obs, p1_obs]).T
+                        P_mis = np.vstack([1-p1_mis, p1_mis]).T
+                    else:
+                        def _softmax(z):
+                            z = z - np.max(z, axis=1, keepdims=True)
+                            ez = np.exp(z)
+                            return ez/ez.sum(axis=1, keepdims=True)
+                        P_obs, P_mis = _softmax(f_obs), _softmax(f_mis)
+                donors = _pmm_categorical(P_obs, P_mis, y_obs_int, k=k_pmm, rng=np.random.default_rng(RANDOM_STATE))
+                X_imp.loc[miss_mask, target] = donors
+    return X_imp
+
+# ---------------- Typing helpers ----------------
+def infer_feature_types(
+    df: pd.DataFrame,
+    y_name: str,
+    binary_threshold: int = 2,
+    treat_small_int_as_cat: bool = True,
+    exclude_cols: Optional[List[str]] = None,
+) -> Tuple[List[str], List[str], List[str]]:
+    exclude_cols = exclude_cols or []
+    exclude = set(exclude_cols + [y_name])
+    feats = [c for c in df.columns if c not in exclude]
+    num_cols, bin_cols, mul_cols = [], [], []
+    for c in feats:
+        s = df[c]
+        if pd.api.types.is_numeric_dtype(s):
+            nunq = s.dropna().nunique()
+            if 2 <= nunq <= binary_threshold:
+                bin_cols.append(c)
+            elif treat_small_int_as_cat and pd.api.types.is_integer_dtype(s) and nunq <= 10:
+                (bin_cols if nunq == 2 else mul_cols).append(c)
+            else:
+                num_cols.append(c)
+        else:
+            mul_cols.append(c)
+    return num_cols, bin_cols, mul_cols
+
+def ensure_integer_labels(df: pd.DataFrame, cols: List[str]) -> Tuple[pd.DataFrame, dict]:
+    enc = {}
+    out = df.copy()
+    for c in cols:
+        if c not in out.columns:
+            continue
+        if not pd.api.types.is_integer_dtype(out[c]):
+            le = LabelEncoder()
+            # 注意：NaN -> 字符串 "nan"，以便 LabelEncoder 处理
+            out[c] = out[c].astype("category").astype(str)
+            out[c] = le.fit_transform(out[c])
+            enc[c] = le
+    return out, enc
+
+# ---------------- I/O helpers ----------------
+def _load_split(name: str) -> pd.DataFrame | None:
+    p = SPLITS / f"charls_{name}.csv"
+    return pd.read_csv(p) if p.exists() else None
+
+def _load_external() -> pd.DataFrame | None:
+    p = SPLITS / "klosa_external.csv"
+    return pd.read_csv(p) if p.exists() else None
+
+def _xy(df: pd.DataFrame):
+    X = df.drop(columns=[Y_NAME]) if Y_NAME in df.columns else df.copy()
+    y = df[[Y_NAME]] if Y_NAME in df.columns else None
+    return X, y
+
+def _combine_xy(X: pd.DataFrame, y: pd.DataFrame|None):
+    return pd.concat([X.reset_index(drop=True), y.reset_index(drop=True)], axis=1) if y is not None else X
+
+# ---------------- 主流程 ----------------
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--suffix", type=str, default="mice_pmm_rep1", help="imputed 兼容输出的文件名后缀")
+    ap.add_argument("--max_iter", type=int, default=5)
+    ap.add_argument("--k_pmm", type=int, default=5)
+    ap.add_argument("--use_rf_for_numeric", action="store_true")
+    args = ap.parse_args()
+
+    # 1) 读取 splits：train/val/test + external（若有）
+    tr = _load_split("train"); va = _load_split("val")
+    assert tr is not None and va is not None, "缺少 train/val，请先运行 03_split_charls.py"
+    te = _load_split("test")
+    ex = _load_external()
+
+    # 排除 ID 列
+    drop_ids = [c for c in ID_COLS if c in tr.columns]
+    if drop_ids:
+        tr = tr.drop(columns=drop_ids)
+        va = va.drop(columns=[c for c in drop_ids if c in va.columns])
+        if te is not None: te = te.drop(columns=[c for c in drop_ids if c in te.columns])
+        if ex is not None: ex = ex.drop(columns=[c for c in drop_ids if c in ex.columns])
+
+    # 先把“看起来像数字”的 object 列转成数值，减少误判
+    tr = _coerce_numeric_like(tr, exclude=[Y_NAME])
+    va = _coerce_numeric_like(va, exclude=[Y_NAME])
+    if te is not None: te = _coerce_numeric_like(te, exclude=[Y_NAME])
+    if ex is not None: ex = _coerce_numeric_like(ex, exclude=[Y_NAME])
+
+    # 2) 类型识别基于 train（口径固定）
+    num_cols, bin_cols, mul_cols = infer_feature_types(tr, y_name=Y_NAME, exclude_cols=ID_COLS+[Y_NAME])
+    feats = num_cols + bin_cols + mul_cols
+
+    def pick_X(df: pd.DataFrame) -> pd.DataFrame:
+        df = df.copy()
+        # 缺的列补 NaN，顺序与 train 对齐
+        for c in feats:
+            if c not in df.columns:
+                df[c] = np.nan
+        return df[feats].copy()
+
+    Xtr, ytr = tr.drop(columns=[Y_NAME]), tr[[Y_NAME]]
+    Xva, yva = va.drop(columns=[Y_NAME]), va[[Y_NAME]]
+    Xte, yte = (te.drop(columns=[Y_NAME]), te[[Y_NAME]]) if te is not None and Y_NAME in te.columns else (te, None)
+    Xex, yex = (ex.drop(columns=[Y_NAME]), ex[[Y_NAME]]) if ex is not None and Y_NAME in ex.columns else (ex, None)
+
+    Xtr, Xva = pick_X(Xtr), pick_X(Xva)
+    Xte = pick_X(Xte) if Xte is not None else None
+    Xex = pick_X(Xex) if Xex is not None else None
+
+    # 分类变量编码（保持只在特征上操作，不碰 y）
+    Xtr_enc, enc_map = ensure_integer_labels(Xtr, bin_cols + mul_cols)
+
+    def apply_enc(X: pd.DataFrame) -> pd.DataFrame:
+        if X is None: return None
+        Z = X.copy()
+        for c, le in enc_map.items():
+            if c in Z.columns:
+                Z[c] = Z[c].astype("category").astype(str)
+                known = set(le.classes_.tolist())
+                # 未见类别映射为已知第一个类别
+                first = le.classes_[0]
+                Z[c] = Z[c].apply(lambda v: v if v in known else first)
+                Z[c] = le.transform(Z[c])
+        return Z
+
+    Xva_enc = apply_enc(Xva)
+    Xte_enc = apply_enc(Xte) if Xte is not None else None
+    Xex_enc = apply_enc(Xex) if Xex is not None else None
+
+    # 3) 只在 train 上拟合 MICE+PMM
+    Xtr_imp = mice_pmm_once(
+        X=Xtr_enc, num_cols=num_cols, bin_cols=bin_cols, mul_cols=mul_cols,
+        max_iter=args.max_iter, seed=RANDOM_STATE, k_pmm=args.k_pmm,
+        use_rf_for_numeric=args.use_rf_for_numeric,
+    )
+
+    # 4) 用“已拟合结构”对 val/test/external 进行单次条件插补
+    #    方法：把 Xtr_enc 和 Xs_enc 纵向拼接，用相同流程跑一轮 PMM，但只回填 Xs 的缺失值。
+    def transform_like_train(Xs_enc: pd.DataFrame) -> pd.DataFrame:
+        if Xs_enc is None: return None
+        combo = pd.concat([Xtr_enc, Xs_enc], axis=0, ignore_index=True)
+        combo.iloc[:len(Xtr_enc), :] = Xtr_imp.values  # 固定训练端的条件结构
+        Xs_part = combo.iloc[len(Xtr_enc):, :].copy()
+        # 仅对 Xs_part 的缺失再跑一轮“条件抽样”
+        Xs_imp = mice_pmm_once(
+            X=Xs_part, num_cols=num_cols, bin_cols=bin_cols, mul_cols=mul_cols,
+            max_iter=1, seed=RANDOM_STATE, k_pmm=args.k_pmm,
+            use_rf_for_numeric=args.use_rf_for_numeric,
+        )
+        return Xs_imp
+
+    Xva_imp = transform_like_train(Xva_enc)
+    Xte_imp = transform_like_train(Xte_enc) if Xte_enc is not None else None
+    Xex_imp = transform_like_train(Xex_enc) if Xex_enc is not None else None
+
+    # 5) 写主线输出：selected_imputation/mice_pmm/*
+    (_combine_xy(Xtr_imp, ytr)).to_csv(SEL_DIR/"charls_train.csv", index=False)
+    (_combine_xy(Xva_imp, yva)).to_csv(SEL_DIR/"charls_val.csv", index=False)
+    if Xte_imp is not None and yte is not None: (_combine_xy(Xte_imp, yte)).to_csv(SEL_DIR/"charls_test.csv", index=False)
+    if Xex_imp is not None and yex is not None: (_combine_xy(Xex_imp, yex)).to_csv(SEL_DIR/"klosa_external.csv", index=False)
+
+    # 6) 兼容输出（供 20_* 自动发现“after”）
+    suffix = args.suffix
+    (_combine_xy(Xtr_imp, ytr)).to_csv(IMPUTED/f"charls_train_{suffix}_Xy.csv", index=False)
+    (_combine_xy(Xva_imp, yva)).to_csv(IMPUTED/f"charls_val_{suffix}_Xy.csv",   index=False)
+    if Xte_imp is not None and yte is not None: (_combine_xy(Xte_imp, yte)).to_csv(IMPUTED/f"charls_test_{suffix}_Xy.csv",  index=False)
+
+    # 7) 保存“插补器参数快照”（可复现实验口径）
+    (IMPUTERS/"params.json").write_text(
+        pd.Series({
+            "method": "mice_pmm",
+            "seed": RANDOM_STATE,
+            "max_iter": int(args.max_iter),
+            "k_pmm": int(args.k_pmm),
+            "use_rf_for_numeric": bool(args.use_rf_for_numeric),
+            "feature_order": feats,
+            "num_cols": num_cols,
+            "bin_cols": bin_cols,
+            "mul_cols": mul_cols,
+        }).to_json(force_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+    # 可选：把“训练端插补后的矩阵”当作“状态”保存（在 transform_like_train 中也用得到）
+    joblib.dump({"Xtr_imp": Xtr_imp, "enc_map": enc_map}, IMPUTERS/"imputer.joblib")
+
+    print(f"[ok] selected_imputation -> {SEL_DIR}")
+    print(f"[ok] imputed (compat) -> {IMPUTED}")
+    print(f"[ok] imputers -> {IMPUTERS}")
+
+if __name__ == "__main__":
+    main()

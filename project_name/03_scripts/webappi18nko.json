@@ -1,0 +1,28 @@
+{
+    "subtitle": "버전: {ver} | 임계값: {thr}",
+    "tab_single": "단일 피험자",
+    "tab_batch": "일괄 처리(CSV)",
+    "tab_about": "안내",
+    "sec_fill": "1) 변수 입력",
+    "btn_predict": "위험 예측",
+    "pred_prob": "예측 확률",
+    "risk_label": "위험 등급",
+    "label_high": "고위험",
+    "label_low": "저위험",
+    "exp_contrib": "특징 기여도(LR 전용)",
+    "xlabel_imp": "집계 기여도",
+    "xlabel_logit": "logit에 대한 기여(+ 위험 증가; − 위험 감소)",
+    "xlabel_feature": "특징(집계)",
+    "tip_only_lr": "현재 모델은 LR이 아니므로 기여도 차트를 숨깁니다.",
+    "sec_batch": "2) 일괄 CSV",
+    "schema_hint": "CSV는 원시 필드 중 일부를 포함해야 합니다(결측치는 학습/검증과 동일하게 처리):",
+    "upload_csv": "CSV 업로드",
+    "download_csv": "예측 결과 CSV 다운로드",
+    "btn_template": "템플릿 생성",
+    "download_template": "template.csv 다운로드",
+    "col_prob": "risk_prob",
+    "col_label": "risk_label",
+    "about_md": "본 앱은 CHARLS 데이터로 학습된 로지스틱 회귀 모델(평균/众수 대치, 표준화, 원-핫)을 사용합니다. 임계값은 검증셋(Youden+F1)에서 선택되었습니다. **연구용 도구이며, 임상 진단/치료 목적으로 사용하지 마십시오.**",
+    "field_labels": {}
+  }
+  

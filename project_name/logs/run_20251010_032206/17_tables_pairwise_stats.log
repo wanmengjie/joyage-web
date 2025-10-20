@@ -1,0 +1,17 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\17_tables_pairwise_stats.py == 2025-10-10 03:22:58
+
+[cfg ] VER_OUT=v2025-10-01
+[io  ] PROBS_DIR=C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\final_eval_s7
+[io  ] OUT_DIR  =C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\pairwise_stats
+[args] make=['all'], force=False, boots=None, alpha=None, seed=None
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\17_tables_pairwise_stats.py", line 428, in <module>
+    run(parts, force, boots, alpha, seed)
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\17_tables_pairwise_stats.py", line 265, in run
+    y_tr, probs_tr = load_probs(PROBS_DIR / "S7_probs_internal_train.csv")
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\17_tables_pairwise_stats.py", line 88, in load_probs
+    raise FileNotFoundError(f"缺少概率文件：{path}")
+FileNotFoundError: 缺少概率文件：C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\final_eval_s7\S7_probs_internal_train.csv
+
+[exit] code=1

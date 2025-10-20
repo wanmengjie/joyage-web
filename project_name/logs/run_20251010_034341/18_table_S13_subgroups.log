@@ -1,0 +1,14 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\18_table_S13_subgroups.py == 2025-10-10 03:44:09
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\18_table_S13_subgroups.py", line 295, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\18_table_S13_subgroups.py", line 201, in main
+    df_probs = load_probs_train(PROBS_TRAIN)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\18_table_S13_subgroups.py", line 102, in load_probs_train
+    raise FileNotFoundError(f"未找到训练集概率：{probs_csv}\n请先运行 14_final_eval_s7.py 生成 S7 概率。")
+FileNotFoundError: 未找到训练集概率：C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\final_eval_s7\S7_probs_internal_train.csv
+请先运行 14_final_eval_s7.py 生成 S7 概率。
+
+[exit] code=1

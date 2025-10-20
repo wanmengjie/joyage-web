@@ -1,0 +1,34 @@
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\joblib\externals\loky\backend\context.py", line 257, in _count_physical_cores
+    cpu_info = subprocess.run(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[model] lr
+[model] rf
+[model] extra_trees
+[model] gb
+[model] adaboost
+[model] lgb
+[LightGBM] [Info] Number of positive: 2571, number of negative: 4176
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.000819 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 1345
+[LightGBM] [Info] Number of data points in the train set: 6747, number of used features: 50
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
+[LightGBM] [Info] Start training from score -0.000000
+[model] xgb
+[model] catboost
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\final_eval_hl\HL_panels.png
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\final_eval_hl\HL_panels.pdf
+[done] HL panels finished.
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\15_hosmer_lemeshow_panels.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts
+==> PYTHON: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe
+

@@ -1,0 +1,8 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\27_train_and_export_web_model.py == 2025-10-10 03:23:15
+
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\27_train_and_export_web_model.py", line 141
+    return df_tr[inter], (df_va[inter] if df_va is not None else None), (df_te[inter] if df_te is not None else None]
+                                                                                                                    ^
+SyntaxError: closing parenthesis ']' does not match opening parenthesis '('
+
+[exit] code=1

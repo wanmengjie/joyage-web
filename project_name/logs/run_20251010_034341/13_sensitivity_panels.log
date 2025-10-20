@@ -1,0 +1,14 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py == 2025-10-10 03:43:58
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py", line 252, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py", line 238, in main
+    df = load_all_from_s4()
+         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py", line 127, in load_all_from_s4
+    raise FileNotFoundError(
+FileNotFoundError: 未发现任何 S4_RFE_<model>_summary.csv 于：C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\feature_sweep
+请先运行 10_feature_count_sweep.py 生成 S4 产物。
+
+[exit] code=1

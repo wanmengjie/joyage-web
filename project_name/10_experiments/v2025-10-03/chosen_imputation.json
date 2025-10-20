@@ -1,0 +1,16 @@
+{
+  "chosen_imputation": "mean_mode",
+  "ref_triplet_source": "sel_mean_mode",
+  "selected_imputation_dir": "C:\\Users\\lenovo\\Desktop\\20250906 charls  klosa\\project_name\\02_processed_data\\v2025-10-03\\selected_imputation\\mean_mode",
+  "frozen": {
+    "charls_mean_mode_X": "C:\\Users\\lenovo\\Desktop\\20250906 charls  klosa\\project_name\\02_processed_data\\v2025-10-03\\frozen\\charls_mean_mode_X.csv",
+    "charls_mean_mode_y": "C:\\Users\\lenovo\\Desktop\\20250906 charls  klosa\\project_name\\02_processed_data\\v2025-10-03\\frozen\\charls_mean_mode_y.csv",
+    "charls_mean_mode_Xy": "C:\\Users\\lenovo\\Desktop\\20250906 charls  klosa\\project_name\\02_processed_data\\v2025-10-03\\frozen\\charls_mean_mode_Xy.csv",
+    "klosa_transfer_X": "C:\\Users\\lenovo\\Desktop\\20250906 charls  klosa\\project_name\\02_processed_data\\v2025-10-03\\frozen\\klosa_transfer_X.csv",
+    "klosa_transfer_y": "C:\\Users\\lenovo\\Desktop\\20250906 charls  klosa\\project_name\\02_processed_data\\v2025-10-03\\frozen\\klosa_transfer_y.csv",
+    "klosa_transfer_Xy": "C:\\Users\\lenovo\\Desktop\\20250906 charls  klosa\\project_name\\02_processed_data\\v2025-10-03\\frozen\\klosa_transfer_Xy.csv"
+  },
+  "with_nan": {
+    "charls_Xy_with_nan": "C:\\Users\\lenovo\\Desktop\\20250906 charls  klosa\\project_name\\02_processed_data\\v2025-10-03\\with_nan\\charls_Xy_with_nan.csv"
+  }
+}

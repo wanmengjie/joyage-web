@@ -1,0 +1,6 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\07_imputation_select.py == 2025-10-10 03:22:23
+
+[WARN] baseline mean_mode 缺失：C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv
+[FAIL] 未发现任何可评估的 *_Xy.csv；请先运行 06/07_add_label_to_imputed.py 生成。
+
+[exit] code=1

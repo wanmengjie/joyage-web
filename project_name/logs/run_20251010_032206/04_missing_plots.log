@@ -1,0 +1,17 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\04_missing_plots.py == 2025-10-10 03:22:08
+
+C:\Users\lenovo\anaconda3\Lib\site-packages\numpy\lib\function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+C:\Users\lenovo\anaconda3\Lib\site-packages\numpy\lib\function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+C:\Users\lenovo\anaconda3\Lib\site-packages\numpy\lib\function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+C:\Users\lenovo\anaconda3\Lib\site-packages\numpy\lib\function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+C:\Users\lenovo\anaconda3\Lib\site-packages\numpy\lib\function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+C:\Users\lenovo\anaconda3\Lib\site-packages\numpy\lib\function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
+[ok] outputs -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\diagnostics
+
+[exit] code=0

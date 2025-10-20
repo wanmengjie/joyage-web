@@ -1,0 +1,33 @@
+[MICE] iteration 1/5
+[MICE] iteration 2/5
+[MICE] iteration 3/5
+[MICE] iteration 4/5
+[MICE] iteration 5/5
+[MICE] iteration 1/1
+[MICE] iteration 1/1
+[MICE] iteration 1/1
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\06_impute_charls.py", line 401, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\06_impute_charls.py", line 362, in main
+    Xex_imp = transform_like_train(Xex_enc) if Xex_enc is not None else None
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\06_impute_charls.py", line 353, in transform_like_train
+    Xs_imp = mice_pmm_once(
+             ^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\06_impute_charls.py", line 146, in mice_pmm_once
+    X_obs_np = X_imp.loc[obs_mask, others].to_numpy(dtype=float, copy=True)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\anaconda3\Lib\site-packages\pandas\core\frame.py", line 1993, in to_numpy
+    result = self._mgr.as_array(dtype=dtype, copy=copy, na_value=na_value)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\anaconda3\Lib\site-packages\pandas\core\internals\managers.py", line 1694, in as_array
+    arr = self._interleave(dtype=dtype, na_value=na_value)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\anaconda3\Lib\site-packages\pandas\core\internals\managers.py", line 1753, in _interleave
+    result[rl.indexer] = arr
+    ~~~~~~^^^^^^^^^^^^
+ValueError: could not convert string to float: '0.Fully Independent'
+# CMD: C:\Users\lenovo\anaconda3\python.exe C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\06_impute_charls.py --suffix mice_pmm_rep1
+# CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts
+

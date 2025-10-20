@@ -1,0 +1,11 @@
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\pairwise_stats\S7_logloss_train_test.csv
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\pairwise_stats\S8_performance_train_test.csv
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\pairwise_stats\S9_delong_train.csv
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\pairwise_stats\S11_delong_test.csv
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\pairwise_stats\S10_nri_idi_train.csv
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\pairwise_stats\S12_nri_idi_test.csv
+[done] S7–S12 tables ready.
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\17_tables_pairwise_stats.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts
+==> PYTHON: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe
+

@@ -1,0 +1,62 @@
+groups:
+  Demographics:
+    - {name: ragender,     label: "Male",                               type: categorical}
+    - {name: agey,         label: "Age (years)",                        type: continuous}
+    - {name: raeducl,      label: "Education level",                    type: categorical}
+    - {name: mstath,       label: "Marital status",                     type: categorical}
+    - {name: rural,        label: "Rural residence",                    type: categorical}
+    - {name: ramomeducl,   label: "Mother's education",                 type: categorical}
+    - {name: radadeducl,   label: "Father's education",                 type: categorical}
+
+  Health:
+    - {name: shlta,        label: "Self-rated health",                  type: categorical}
+    - {name: hlthlm,       label: "Health limits activities",           type: categorical}
+    - {name: hibpe,        label: "Hypertension",                       type: categorical}
+    - {name: diabe,        label: "Diabetes",                           type: categorical}
+    - {name: cancre,       label: "Cancer",                             type: categorical}
+    - {name: lunge,        label: "Lung disease",                       type: categorical}
+    - {name: hearte,       label: "Heart disease",                      type: categorical}
+    - {name: stroke,       label: "Stroke",                             type: categorical}
+    - {name: arthre,       label: "Arthritis",                          type: categorical}
+    - {name: livere,       label: "Liver disease",                      type: categorical}
+    - {name: painfr,       label: "Frequent pain",                      type: categorical}
+    - {name: fall,         label: "Falls",                              type: categorical}
+    - {name: adlfive,      label: "≥1 ADL limitation",                  type: categorical}
+    - {name: stayhospital, label: "Hospitalization (past year)",        type: categorical}
+
+  Lifestyle:
+    - {name: drinkev,      label: "Ever drank",                         type: categorical}
+    - {name: smokev,       label: "Ever smoked",                        type: categorical}
+    - {name: work,         label: "Currently working",                  type: categorical}
+
+  Social:
+    - {name: ftrsp,        label: "Has spouse/partner",                 type: categorical}
+    - {name: ftrkids,      label: "Has children",                       type: categorical}
+    - {name: momliv,       label: "Mother alive",                       type: categorical}
+    - {name: dadliv,       label: "Father alive",                       type: categorical}
+    - {name: lvnear,       label: "Children live nearby",               type: categorical}
+    - {name: kcntf,        label: "Kin contacts (frequency)",           type: categorical}
+    - {name: socwk,        label: "Has social work/support",            type: categorical}
+    - {name: child,        label: "Number of children",                 type: continuous}
+
+  Economic:
+    - {name: pubpen,               label: "Public pension (has)",       type: categorical}
+    - {name: peninc,               label: "Pension income (categorical)", type: categorical}
+    - {name: hipriv,               label: "Private insurance",          type: categorical}
+    - {name: comparable_ipubpen,   label: "Comparable public pension",  type: continuous}
+    - {name: comparable_hexp,      label: "Health expenditure",         type: continuous}
+    - {name: comparable_exp,       label: "Household expenditure",      type: continuous}
+    - {name: comparable_itearn,    label: "Individual earnings",        type: continuous}
+    - {name: comparable_frec,      label: "Family transfers received",  type: continuous}
+    - {name: comparable_tgiv,      label: "Transfers given",            type: continuous}
+    - {name: hhres,                label: "Household residents",        type: continuous}
+
+# 额外元信息（供脚本使用，可选）
+meta:
+  id_col: id
+  outcome_col: cesd10
+  depression_cutoff: 10
+  notes:
+    - "type=categorical 将在树模型中做 label encode，在线性/逻辑回归中做 one-hot"
+    - "type=continuous 将在树模型中原样使用，在线性/逻辑回归中做 z-score 标准化"
+    - "各分组用于基线表分块、SHAP grouped 可视化等" 

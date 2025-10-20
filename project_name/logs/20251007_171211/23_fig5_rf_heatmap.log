@@ -1,0 +1,6 @@
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\23_fig5_rf_heatmap.py:189: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
+  fig.tight_layout()
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\figs\Fig5_rf_heatmap_pretty.png
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\23_fig5_rf_heatmap.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

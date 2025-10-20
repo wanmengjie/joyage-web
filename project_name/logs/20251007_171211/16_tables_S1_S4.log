@@ -1,0 +1,7 @@
+[WARN] 找不到带缺失的原始 Xy，表 S1/S2 将跳过（仅生成 S3/S4）
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\tables_S1_S4\S3_imputation_sensitivity_train.csv
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\tables_S1_S4\S4_imputation_sensitivity_test.csv
+[done] S1–S4 tables ready.]
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\16_tables_S1_S4.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

@@ -1,0 +1,26 @@
+# utils/thresholds.py
+import numpy as np
+from typing import Tuple, Dict, Any
+from pathlib import Path
+from .config_io import dump_json, load_json
+
+def youden_threshold(y_true: np.ndarray, y_prob: np.ndarray) -> Tuple[float, Dict[str, float]]:
+    from sklearn.metrics import roc_curve
+    fpr, tpr, thr = roc_curve(y_true, y_prob)
+    j = tpr - fpr
+    k = int(np.argmax(j))
+    return float(thr[k]), {"tpr": float(tpr[k]), "fpr": float(fpr[k])}
+
+def save_threshold_from_val(path: Path, ver: str, thr: float, method="youden"):
+    dump_json({
+        "source_split": "val",
+        "method": method,
+        "threshold": float(thr),
+        "ver": ver
+    }, path)
+
+def load_threshold_from_val(path: Path) -> float:
+    cfg = load_json(path)
+    if cfg.get("source_split") != "val":
+        raise ValueError("阈值来源必须是 val（禁止 test/external 重新挑阈值）")
+    return float(cfg["threshold"])

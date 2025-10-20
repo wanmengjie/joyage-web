@@ -1,0 +1,60 @@
+[ref] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv
+
+[proc-method] knn5
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_train_knn5_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_val_knn5_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_test_knn5_Xy.csv
+  [save] full-Xy  -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_all_knn5_Xy.csv
+
+[proc-method] mice_bayes
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_train_mice_bayes_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_val_mice_bayes_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_test_mice_bayes_Xy.csv
+  [save] full-Xy  -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_all_mice_bayes_Xy.csv
+
+[proc-method] mice_cart
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_train_mice_cart_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_val_mice_cart_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_test_mice_cart_Xy.csv
+  [save] full-Xy  -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_all_mice_cart_Xy.csv
+
+[proc-method] mean_mode
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_train_mean_mode_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_val_mean_mode_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_test_mean_mode_Xy.csv
+  [save] full-Xy  -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_all_mean_mode_Xy.csv
+
+[proc-method] mice_pmm_rep1
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_train_mice_pmm_rep1_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_val_mice_pmm_rep1_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_test_mice_pmm_rep1_Xy.csv
+  [save] full-Xy  -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_all_mice_pmm_rep1_Xy.csv
+
+[proc-method] mice_pmm_rep2
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_train_mice_pmm_rep2_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_val_mice_pmm_rep2_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_test_mice_pmm_rep2_Xy.csv
+  [save] full-Xy  -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_all_mice_pmm_rep2_Xy.csv
+
+[proc-method] mice_pmm_rep3
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_train_mice_pmm_rep3_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_val_mice_pmm_rep3_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_test_mice_pmm_rep3_Xy.csv
+  [save] full-Xy  -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_all_mice_pmm_rep3_Xy.csv
+
+[proc-method] mice_pmm_rep4
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_train_mice_pmm_rep4_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_val_mice_pmm_rep4_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_test_mice_pmm_rep4_Xy.csv
+  [save] full-Xy  -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_all_mice_pmm_rep4_Xy.csv
+
+[proc-method] mice_pmm_rep5
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_train_mice_pmm_rep5_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_val_mice_pmm_rep5_Xy.csv
+  [save] split-Xy -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_test_mice_pmm_rep5_Xy.csv
+  [save] full-Xy  -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_all_mice_pmm_rep5_Xy.csv
+
+[done] 标签补齐 + 全量拼接完成。输出目录： C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\07_add_label_to_imputed.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

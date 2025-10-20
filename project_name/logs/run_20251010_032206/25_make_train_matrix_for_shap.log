@@ -1,0 +1,10 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\25_make_train_matrix_for_shap.py == 2025-10-10 03:23:12
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\25_make_train_matrix_for_shap.py", line 358, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\25_make_train_matrix_for_shap.py", line 275, in main
+    raise FileNotFoundError(f"找不到数据：{DATA_CSV}")
+FileNotFoundError: 找不到数据：C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv
+
+[exit] code=1

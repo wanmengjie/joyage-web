@@ -1,0 +1,11 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\08_freeze_mean_mode.py == 2025-10-10 03:22:25
+
+=========== MERGED FREEZE (08 + 05) START ===========
+[info] VER_IN=v2025-10-01  VER_OUT=v2025-10-01
+[warn] no mean_mode rows from 07 tables (skip summary)
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\08_freeze_mean_mode.py", line 193, in <module>
+    raise FileNotFoundError(
+FileNotFoundError: 缺少 mean_mode 三件套（imputed 下 *_mean_mode/*.mm）且 selected_imputation/mean_mode/charls_train.csv 不存在；请先生成 mean_mode 插补结果。
+
+[exit] code=1

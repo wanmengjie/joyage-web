@@ -1,0 +1,12 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\22_fig4_multi_panels_roc_calib_dca.py == 2025-10-10 03:23:04
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\22_fig4_multi_panels_roc_calib_dca.py", line 292, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\22_fig4_multi_panels_roc_calib_dca.py", line 279, in main
+    raise FileNotFoundError(f"需要概率文件：\n- {P_TR}\n- {P_TE}")
+FileNotFoundError: 需要概率文件：
+- C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\final_eval_s7\S7_probs_internal_train.csv
+- C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\final_eval_s7\S7_probs_internal_test.csv
+
+[exit] code=1

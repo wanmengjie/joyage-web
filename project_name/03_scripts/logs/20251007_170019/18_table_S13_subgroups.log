@@ -1,0 +1,10 @@
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\18_table_S13_subgroups.py:104: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '['Female' 'Male' 'Male' ... 'Male' 'Female' 'Male']' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  x.loc[mask] = v.map({1.0: "Male", 2.0: "Female"})
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\18_table_S13_subgroups.py:112: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise an error in a future version of pandas. Value '['Rural' 'Rural' 'Rural' ... 'Urban' 'Urban' 'Urban']' has dtype incompatible with int64, please explicitly cast to a compatible dtype first.
+  x.loc[mask] = v.map({0.0: "Urban", 1.0: "Rural"})
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\subgroup_S13\S13_subgroup_internal_train.csv
+[done] subgroup table ready.]
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\18_table_S13_subgroups.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts
+==> PYTHON: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe
+

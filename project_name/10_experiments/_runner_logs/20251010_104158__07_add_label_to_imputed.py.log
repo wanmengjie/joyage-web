@@ -1,0 +1,8 @@
+
+[stitch] method=mice_pmm_rep1
+  [save] charls_all_mice_pmm_rep1_Xy.csv
+
+[done] 07 完成。输出目录： C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed
+# CMD: C:\Users\lenovo\anaconda3\python.exe C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\07_add_label_to_imputed.py
+# CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts
+

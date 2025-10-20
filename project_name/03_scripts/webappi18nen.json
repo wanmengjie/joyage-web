@@ -1,0 +1,28 @@
+{
+    "subtitle": "Version: {ver} | Threshold: {thr}",
+    "tab_single": "Single subject",
+    "tab_batch": "Batch (CSV)",
+    "tab_about": "About",
+    "sec_fill": "1) Fill in variables",
+    "btn_predict": "Predict risk",
+    "pred_prob": "Predicted probability",
+    "risk_label": "Risk label",
+    "label_high": "High risk",
+    "label_low": "Low risk",
+    "exp_contrib": "Feature contributions (LR only)",
+    "xlabel_imp": "Aggregated contribution",
+    "xlabel_logit": "Contribution to logit (+: higher risk; −: lower)",
+    "xlabel_feature": "Feature (aggregated)",
+    "tip_only_lr": "Current model is not LR; contribution chart is hidden.",
+    "sec_batch": "2) Batch CSV",
+    "schema_hint": "CSV should include some raw fields (missing values will be handled as in training/validation):",
+    "upload_csv": "Upload CSV",
+    "download_csv": "Download CSV with predictions",
+    "btn_template": "Make template",
+    "download_template": "Download template.csv",
+    "col_prob": "risk_prob",
+    "col_label": "risk_label",
+    "about_md": "This app uses a Logistic Regression model trained on CHARLS (with mean/mode imputation, standardization and One-Hot). Threshold selected on validation (Youden+F1). **Research use only; not for clinical diagnosis or treatment.**",
+    "field_labels": {}
+  }
+  

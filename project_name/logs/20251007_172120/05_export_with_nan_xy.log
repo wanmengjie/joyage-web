@@ -1,0 +1,9 @@
+[frozen] file=C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv n=9639 feats=42
+[after source] imputed:mice_pmm_rep1
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\tables_S1_S4\S1_before_after_train.csv
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\tables_S1_S4\S2_before_after_test.csv
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\tables_S1_S4\S1_S2_before_after.xlsx
+[done] S1/S2（插补前 vs 插补后）已生成。
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\05_export_with_nan_xy.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

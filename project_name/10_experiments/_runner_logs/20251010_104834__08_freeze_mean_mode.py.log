@@ -1,0 +1,15 @@
+=========== MERGED FREEZE (08 + 05) START ===========
+[info] VER_IN=v2025-10-01  VER_OUT=v2025-10-01
+[warn] no mean_mode rows from 07 tables (skip summary)
+[ref] use triplet from: sel_mean_mode -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\selected_imputation\mean_mode
+[age-filter] use 'agey', min=60.0 -> kept 10800/10800
+[age-filter] use 'agey', min=60.0 -> kept 5521/6935
+[ok] with_nan -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\with_nan\charls_Xy_with_nan.csv (rows=9639)
+[ok] frozen CHARLS -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv (rows=9639)
+[ok] stats -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputers\mean_mode_stats.json
+[ok] frozen KLOSA -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\klosa_transfer_Xy.csv (rows=5521)
+[ok] meta -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\chosen_imputation.json
+=========== MERGED FREEZE END ========================
+# CMD: C:\Users\lenovo\anaconda3\python.exe C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\08_freeze_mean_mode.py
+# CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts
+

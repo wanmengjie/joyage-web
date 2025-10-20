@@ -1,0 +1,89 @@
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\joblib\externals\loky\backend\context.py", line 257, in _count_physical_cores
+    cpu_info = subprocess.run(
+               ^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 548, in run
+    with Popen(*popenargs, **kwargs) as process:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[inputs] 将评估的方法： knn5, mean_mode, mice_bayes, mice_cart, mice_pmm_rep1, mice_pmm_rep2, mice_pmm_rep3, mice_pmm_rep4, mice_pmm_rep5
+[LightGBM] [Info] Number of positive: 2571, number of negative: 4176
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.010252 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 1418
+[LightGBM] [Info] Number of data points in the train set: 6747, number of used features: 87
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
+[LightGBM] [Info] Start training from score -0.000000
+[LightGBM] [Info] Number of positive: 2571, number of negative: 4176
+[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.010765 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 1443
+[LightGBM] [Info] Number of data points in the train set: 6747, number of used features: 87
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
+[LightGBM] [Info] Start training from score -0.000000
+[LightGBM] [Info] Number of positive: 2571, number of negative: 4176
+[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.009794 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 1556
+[LightGBM] [Info] Number of data points in the train set: 6747, number of used features: 87
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
+[LightGBM] [Info] Start training from score -0.000000
+[LightGBM] [Info] Number of positive: 2571, number of negative: 4176
+[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.007650 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 1416
+[LightGBM] [Info] Number of data points in the train set: 6747, number of used features: 87
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
+[LightGBM] [Info] Start training from score -0.000000
+[LightGBM] [Info] Number of positive: 2571, number of negative: 4176
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.006728 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 1416
+[LightGBM] [Info] Number of data points in the train set: 6747, number of used features: 87
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
+[LightGBM] [Info] Start training from score -0.000000
+[LightGBM] [Info] Number of positive: 2571, number of negative: 4176
+[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.012091 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 1417
+[LightGBM] [Info] Number of data points in the train set: 6747, number of used features: 87
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
+[LightGBM] [Info] Start training from score -0.000000
+[LightGBM] [Info] Number of positive: 2571, number of negative: 4176
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.007578 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 1418
+[LightGBM] [Info] Number of data points in the train set: 6747, number of used features: 87
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
+[LightGBM] [Info] Start training from score -0.000000
+[LightGBM] [Info] Number of positive: 2571, number of negative: 4176
+[LightGBM] [Info] Auto-choosing col-wise multi-threading, the overhead of testing was 0.012242 seconds.
+You can set `force_col_wise=true` to remove the overhead.
+[LightGBM] [Info] Total Bins 1416
+[LightGBM] [Info] Number of data points in the train set: 6747, number of used features: 87
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
+[LightGBM] [Info] Start training from score -0.000000
+[LightGBM] [Info] Number of positive: 2571, number of negative: 4176
+[LightGBM] [Info] Auto-choosing row-wise multi-threading, the overhead of testing was 0.008479 seconds.
+You can set `force_row_wise=true` to remove the overhead.
+And if memory is not enough, you can set `force_col_wise=true`.
+[LightGBM] [Info] Total Bins 1419
+[LightGBM] [Info] Number of data points in the train set: 6747, number of used features: 87
+[LightGBM] [Info] [binary:BoostFromScore]: pavg=0.500000 -> initscore=-0.000000
+[LightGBM] [Info] Start training from score -0.000000
+[save] internal_train -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\multi_model_eval\impute_model_selection_internal_train.csv
+[save] internal_val -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\multi_model_eval\impute_model_selection_internal_val.csv
+[save] internal_test -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\multi_model_eval\impute_model_selection_internal_test.csv
+[save] external_transfer -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\multi_model_eval\impute_model_selection_external_transfer.csv
+[save] summary -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\multi_model_eval\impute_model_selection_summary.csv
+[save] sensitivity_by_model -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\multi_model_eval\impute_sensitivity_by_model.csv
+[done] all evaluations finished.
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\07_imputation_select.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

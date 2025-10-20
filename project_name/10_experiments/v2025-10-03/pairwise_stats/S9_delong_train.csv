@@ -1,0 +1,2 @@
+﻿New model,Baseline model,New AUC,Baseline AUC,Difference of AUC,95% CI low,95% CI high,Z statistic,P
+CATBOOST,XGB,0.820,0.797,0.023,0.019,0.027,10.759,<0.001

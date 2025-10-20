@@ -1,0 +1,15 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\21_fig3_forest_internal_perf.py == 2025-10-10 03:44:12
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\21_fig3_forest_internal_perf.py", line 248, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\21_fig3_forest_internal_perf.py", line 217, in main
+    prob_df, title, scen = _pick_probs_and_title()
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\21_fig3_forest_internal_perf.py", line 53, in _pick_probs_and_title
+    raise FileNotFoundError(f"缺少概率文件：\n- {PROBS_TEST}\n- {PROBS_VAL}")
+FileNotFoundError: 缺少概率文件：
+- C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\final_eval_s7\S7_probs_internal_test.csv
+- C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\final_eval_s7\S7_probs_internal_val.csv
+
+[exit] code=1

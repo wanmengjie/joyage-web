@@ -1,0 +1,11 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\10_feature_count_cv_s4.py == 2025-10-10 03:22:26
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\10_feature_count_cv_s4.py", line 434, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\10_feature_count_cv_s4.py", line 287, in main
+    raise FileNotFoundError(
+FileNotFoundError: 未找到 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv
+请先运行 08_freeze_mean_mode.py 生成 frozen/charls_mean_mode_Xy.csv。
+
+[exit] code=1

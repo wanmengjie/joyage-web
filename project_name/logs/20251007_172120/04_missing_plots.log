@@ -1,0 +1,9 @@
+[load] CHARLS raw n=10800 | file=C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\01_raw_data\charls2018 20250906.csv
+[ok] saved missing_rate csv -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\diagnostics\missing_rate_CHARLS.csv
+[ok] saved bar -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\05_supplement\v2025-10-01\S1_missing_bar.png
+[info] matrix sampled 5000/10800 rows for plotting
+[ok] saved matrix -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\05_supplement\v2025-10-01\S1_missing_matrix.png
+[done] Missing plots updated.
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\04_missing_plots.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

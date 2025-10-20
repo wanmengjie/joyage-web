@@ -1,0 +1,8 @@
+﻿method,model,threshold,tpr,fpr
+mice_pmm_rep1,adaboost,0.8807970779778823,1.0,0.0
+mice_pmm_rep1,extra_trees,0.7393315511751225,1.0,0.0
+mice_pmm_rep1,gb,0.9999729813357182,1.0,0.0
+mice_pmm_rep1,lgb,0.9999838063164607,1.0,0.0
+mice_pmm_rep1,lr,0.9761280767262547,1.0,0.0
+mice_pmm_rep1,rf,0.8139855108253972,1.0,0.0
+mice_pmm_rep1,xgb,0.9996839761734009,1.0,0.0

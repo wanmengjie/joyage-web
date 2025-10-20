@@ -1,0 +1,8 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\02_utils_thresholds.py == 2025-10-10 03:22:06
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\02_utils_thresholds.py", line 5, in <module>
+    from .config_io import dump_json, load_json
+ImportError: attempted relative import with no known parent package
+
+[exit] code=1

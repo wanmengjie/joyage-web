@@ -1,0 +1,26 @@
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py:165: FutureWarning: The default value of observed=False is deprecated and will change to observed=True in a future version of pandas. Specify observed=False to silence this warning and retain the current behavior
+  tab = sub.pivot_table(index="model", columns="scenario", values="value", aggfunc="mean")
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py:165: FutureWarning: The default value of observed=False is deprecated and will change to observed=True in a future version of pandas. Specify observed=False to silence this warning and retain the current behavior
+  tab = sub.pivot_table(index="model", columns="scenario", values="value", aggfunc="mean")
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py:165: FutureWarning: The default value of observed=False is deprecated and will change to observed=True in a future version of pandas. Specify observed=False to silence this warning and retain the current behavior
+  tab = sub.pivot_table(index="model", columns="scenario", values="value", aggfunc="mean")
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py:165: FutureWarning: The default value of observed=False is deprecated and will change to observed=True in a future version of pandas. Specify observed=False to silence this warning and retain the current behavior
+  tab = sub.pivot_table(index="model", columns="scenario", values="value", aggfunc="mean")
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py:165: FutureWarning: The default value of observed=False is deprecated and will change to observed=True in a future version of pandas. Specify observed=False to silence this warning and retain the current behavior
+  tab = sub.pivot_table(index="model", columns="scenario", values="value", aggfunc="mean")
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py:165: FutureWarning: The default value of observed=False is deprecated and will change to observed=True in a future version of pandas. Specify observed=False to silence this warning and retain the current behavior
+  tab = sub.pivot_table(index="model", columns="scenario", values="value", aggfunc="mean")
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py:165: FutureWarning: The default value of observed=False is deprecated and will change to observed=True in a future version of pandas. Specify observed=False to silence this warning and retain the current behavior
+  tab = sub.pivot_table(index="model", columns="scenario", values="value", aggfunc="mean")
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py:165: FutureWarning: The default value of observed=False is deprecated and will change to observed=True in a future version of pandas. Specify observed=False to silence this warning and retain the current behavior
+  tab = sub.pivot_table(index="model", columns="scenario", values="value", aggfunc="mean")
+C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py:165: FutureWarning: The default value of observed=False is deprecated and will change to observed=True in a future version of pandas. Specify observed=False to silence this warning and retain the current behavior
+  tab = sub.pivot_table(index="model", columns="scenario", values="value", aggfunc="mean")
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\feature_sweep\S6_panel_data.csv
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\feature_sweep\plots\S6_sensitivity_panels.png
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\feature_sweep\plots\S6_sensitivity_panels.pdf
+[done] S6-style sensitivity panels finished.
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\13_sensitivity_panels.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts
+==> PYTHON: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe
+

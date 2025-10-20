@@ -1,0 +1,10 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\24_fig6_shap_rf.py == 2025-10-10 03:23:07
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\24_fig6_shap_rf.py", line 261, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\24_fig6_shap_rf.py", line 145, in main
+    raise FileNotFoundError(f"未找到数据：{MEAN_MODE_XY}")
+FileNotFoundError: 未找到数据：C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv
+
+[exit] code=1

@@ -1,0 +1,35 @@
+{
+  "ver_in": "v2025-10-03",
+  "random_state": 2025,
+  "inputs": {
+    "charls_csv": "C:\\Users\\lenovo\\Desktop\\20250906 charls  klosa\\project_name\\01_raw_data\\charls2018 20250906.csv",
+    "klosa_csv": "C:\\Users\\lenovo\\Desktop\\20250906 charls  klosa\\project_name\\01_raw_data\\klosa2018 20250722 - 20250905.csv"
+  },
+  "age_filter": {
+    "enable": true,
+    "column": "agey",
+    "min": 60
+  },
+  "outcome": {
+    "name": "depression_bin",
+    "source": "cesd",
+    "threshold": 10
+  },
+  "split": {
+    "val_size": 0.15,
+    "test_size": 0.15,
+    "n_splits": 20,
+    "strat_col": "depression_bin",
+    "group_col": null
+  },
+  "sizes": {
+    "n_total_after_filters": 9639,
+    "n_train": 6747,
+    "n_val": 1446,
+    "n_test": 1446,
+    "pos_rate_train": 0.3810582481102712,
+    "pos_rate_val": 0.38105117565698476,
+    "pos_rate_test": 0.38105117565698476,
+    "n_external": 5521
+  }
+}

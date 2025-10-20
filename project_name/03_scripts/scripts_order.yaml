@@ -1,0 +1,34 @@
+# project_name/03_scripts/scripts_order.yaml
+# —— 数据准备与插补 ——
+- script: 03_split_charls.py
+  args: ""
+
+- script: 06_impute_charls.py
+  args: "--suffix mice_pmm_rep1"
+
+- script: 07_add_label_to_imputed.py
+  args: ""
+
+- script: 08_freeze_mean_mode.py
+  args: ""
+
+# —— 现在产物具备，再做检查（缺文件只提醒不阻断建议你按需改脚本） ——
+- script: 00_sanity_checks.py
+  args: ""
+
+# —— 统计表与建模评估（按需可增删） ——
+- script: 11_table1_baseline.py
+  args: ""
+
+- script: 14_final_eval_s7.py
+  args: ""
+
+# （可选）更多图表/面板
+# - script: 20_fig2_rcs.py
+#   args: ""
+# - script: 22_fig4_multi_panels_roc_calib_dca.py
+#   args: ""
+
+# —— 导出Web用模型管线 ——
+- script: 27_train_and_export_web_model.py
+  args: ""

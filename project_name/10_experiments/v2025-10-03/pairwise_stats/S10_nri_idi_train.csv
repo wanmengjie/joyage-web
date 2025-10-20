@@ -1,0 +1,2 @@
+﻿New model,Baseline model,NRI,NRI 95%CI,P value (NRI),IDI,IDI 95%CI,P value (IDI)
+CATBOOST,XGB,0.277,0.229–0.325,0.996,0.020,0.016–0.024,0.979

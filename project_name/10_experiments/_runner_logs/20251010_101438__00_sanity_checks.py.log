@@ -1,0 +1,5 @@
+=== Sanity Check Start ===
+[FAIL] 缺少关键文件: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv
+# CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\00_sanity_checks.py
+# CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts
+

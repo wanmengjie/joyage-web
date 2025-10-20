@@ -1,0 +1,10 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\12_feature_importance_rfe.py == 2025-10-10 03:43:54
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\12_feature_importance_rfe.py", line 429, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\12_feature_importance_rfe.py", line 346, in main
+    raise FileNotFoundError(f"缺少必要文件：{p}。请先完成 03 划分与 08 冻结。")
+FileNotFoundError: 缺少必要文件：C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv。请先完成 03 划分与 08 冻结。
+
+[exit] code=1

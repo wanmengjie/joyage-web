@@ -1,0 +1,14 @@
+=========== FREEZE START (08_freeze_mean_mode) ===========
+[08] VER_IN=v2025-10-01  VER_OUT=v2025-10-01
+[08] summary -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\mean_mode_summary.csv
+[08] selected_imputation -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\selected_imputation\mean_mode
+[08] found and copied mean_mode.pkl
+[age-filter] use column 'agey', min=60.0 -> kept 10800/10800 (dropped 0)
+[08] saved CHARLS frozen -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv (rows=9639)
+[age-filter] use column 'agey', min=60.0 -> kept 5521/6935 (dropped 1414)
+[08] saved KLOSA  frozen -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\klosa_transfer_Xy.csv (rows=5521)
+[08] meta -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\chosen_imputation.json
+=========== FREEZE END ================================
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\08_freeze_mean_mode.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

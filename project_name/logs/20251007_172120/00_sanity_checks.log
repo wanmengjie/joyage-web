@@ -1,0 +1,19 @@
+=== Sanity Check Start ===
+[OK]   关键输入文件存在
+[info] mean_mode_Xy shape = (9639, 43)
+[OK]   标签列存在且为二分类
+[OK]   train/val/test 索引均在范围内
+[OK]   train/val/test 互不重叠
+[OK]   external_main OK: shape=(6935, 43)
+[OK]   external_transfer OK: shape=(6935, 43)
+[info] inferred features: num=9, bin=27, cat=6
+[OK]   特征类型推断完成（含 YAML 种子）
+[info] smoke LR on ≤2k train rows: AUROC=0.795
+[OK]   轻训练通过：预处理/模型串接正常
+[WARN] final_eval_s7 目录不存在，跳过概率文件检查
+[WARN] 缺少 S4_RFE_overview（如尚未跑 S4 可忽略）
+[WARN] 缺少 S7_final_metrics（如尚未跑 S7 可忽略）
+=== Sanity Check Finished ===
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\00_sanity_checks.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

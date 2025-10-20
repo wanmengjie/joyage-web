@@ -1,0 +1,10 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\16_tables_S1_S4.py == 2025-10-10 03:44:08
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\16_tables_S1_S4.py", line 367, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\16_tables_S1_S4.py", line 323, in main
+    raise FileNotFoundError(f"找不到插补后数据：{IMPUTED_XY}")
+FileNotFoundError: 找不到插补后数据：C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv
+
+[exit] code=1

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\07_add_label_to_imputed.py", line 209, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\07_add_label_to_imputed.py", line 109, in main
+    _need_paths_exist(FROZEN_XY, SPLIT_DIR / "charls_train_idx.csv", SPLIT_DIR / "charls_val_idx.csv", SPLIT_DIR / "charls_test_idx.csv")
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\07_add_label_to_imputed.py", line 60, in _need_paths_exist
+    raise FileNotFoundError(f"缺少必要文件：{p}")
+FileNotFoundError: 缺少必要文件：C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv
+# CMD: C:\Users\lenovo\anaconda3\python.exe C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\07_add_label_to_imputed.py
+# CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts
+

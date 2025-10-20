@@ -1,0 +1,35 @@
+[global]
+# 开发模式
+developmentMode = false
+
+[server]
+# 端口设置 - Streamlit Cloud会自动分配端口
+# port = 8501  # 注释掉，让Streamlit Cloud自动处理
+# 启用CORS - 修复冲突
+# enableCORS = false  # 注释掉，避免与XSRF保护冲突
+# 启用WebSocket压缩
+enableWebsocketCompression = true
+# 运行状态检查
+runOnSave = true
+# 文件监控
+fileWatcherType = "auto"
+
+[browser]
+# 自动打开浏览器
+gatherUsageStats = false
+
+[theme]
+# 主题设置（可选）
+primaryColor = "#FF0D57"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F0F2F6"
+textColor = "#262730"
+
+# 移除已弃用的client配置
+# [client]
+# caching = true  # 已弃用
+# displayEnabled = true  # 已弃用
+
+[logger]
+# 日志级别
+level = "info" 

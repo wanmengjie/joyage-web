@@ -1,0 +1,15 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\03_split_charls.py == 2025-10-10 03:22:07
+
+[load] CHARLS n=10800 | file=C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\01_raw_data\charls2018 20250906.csv
+[age-filter] CHARLS: use 'agey', min=60.0 -> kept 10800/10800 (dropped 0)
+[label] dropna on 'cesd': kept 9639/10800 (dropped 1161)
+[load] KLOSA  n=6935 | file=C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\01_raw_data\klosa2018 20250722 - 20250905.csv
+[age-filter] KLOSA: use 'agey', min=60.0 -> kept 5521/6935 (dropped 1414)
+[label] dropna on 'cesd': kept 5521/5521 (dropped 0)
+[overlap] train/val/test disjoint = True
+train n=  6747  pos_rate=0.381
+  val n=  1446  pos_rate=0.381
+ test n=  1446  pos_rate=0.381
+Saved -> C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\splits
+
+[exit] code=0

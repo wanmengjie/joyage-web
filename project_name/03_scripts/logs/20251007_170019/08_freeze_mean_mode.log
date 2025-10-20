@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\08_freeze_mean_mode.py", line 28, in <module>
+    PROJECT_ROOT = Path(CFG["paths"]["project_root"])
+                        ~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+KeyError: 'project_root'
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\08_freeze_mean_mode.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts
+==> PYTHON: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe
+

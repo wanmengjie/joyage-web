@@ -1,0 +1,59 @@
+{
+  "ver_in": "v2025-10-03",
+  "ver_out": "v2025-10-03",
+  "feature_source": "rfe",
+  "train_rows": 6747,
+  "bg_rows": 512,
+  "x_cols": 62,
+  "y_name": "depression_bin",
+  "used_cols": {
+    "num": [
+      "agey",
+      "child",
+      "hhres",
+      "comparable_hexp",
+      "comparable_exp",
+      "comparable_frec",
+      "comparable_itearn",
+      "comparable_ipubpen",
+      "comparable_tgiv"
+    ],
+    "bin": [
+      "ragender",
+      "rural",
+      "hlthlm",
+      "hibpe",
+      "diabe",
+      "cancre",
+      "lunge",
+      "hearte",
+      "stroke",
+      "arthre",
+      "livere",
+      "painfr",
+      "stayhospital",
+      "fall",
+      "hipriv",
+      "drinkev",
+      "smokev",
+      "socwk",
+      "work",
+      "momliv",
+      "dadliv",
+      "lvnear",
+      "kcntf",
+      "ftrsp",
+      "ftrkids",
+      "pubpen",
+      "peninc"
+    ],
+    "mul": [
+      "raeducl",
+      "ramomeducl",
+      "radadeducl",
+      "mstath",
+      "shlta",
+      "adlfive"
+    ]
+  }
+}

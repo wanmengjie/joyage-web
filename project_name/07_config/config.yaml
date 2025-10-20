@@ -1,0 +1,130 @@
+# === 基本 ===
+run_id_out: v2025-10-03
+run_id_in:  v2025-10-03   #（通常 in/out 一致更省心）
+
+random_state: 2025           # 兼容旧脚本用法
+seed: 2025                   # 新脚本优先读这个（若无则回落到 random_state）
+
+# === 数据路径（相对仓库根目录）===
+paths:
+  project_root: "C:/Users/lenovo/Desktop/20250906 charls  klosa/project_name"
+  charls: "01_raw_data/charls2018 20250906.csv"
+  klosa:  "01_raw_data/klosa2018 20250722 - 20250905.csv"
+  # 可选：若已有“带缺失的原始 Xy”
+  # raw_xy: "02_processed_data/v2025-10-01/frozen/charls_Xy_with_na.csv"
+
+# === 预处理设置 ===
+preprocess:
+  age_filter:
+    enable: true
+    column: agey
+    min: 60
+  # 从特征集中排除的原始列（脚本会先用它构建标签，再从特征里排除）
+  drop_cols: [cesd]
+  variable_types:
+    categorical:
+      - ragender
+      - raeducl
+      - ramomeducl
+      - radadeducl
+      - mstath
+      - rural
+      - shlta
+      - hlthlm
+      - adlfive
+      - hibpe
+      - diabe
+      - cancre
+      - lunge
+      - hearte
+      - stroke
+      - arthre
+      - livere
+      - painfr
+      - stayhospital
+      - fall
+      - hipriv
+      - drinkev
+      - smokev
+      - socwk
+      - work
+      - momliv
+      - dadliv
+      - lvnear
+      - kcntf
+      - ftrsp
+      - ftrkids
+      - pubpen
+      - peninc
+    continuous:
+      - agey
+      - child
+      - hhres
+      - comparable_hexp
+      - comparable_exp
+      - comparable_frec
+      - comparable_itearn
+      - comparable_ipubpen
+      - comparable_tgiv
+
+# === 标识列 ===
+id_cols: ["ID", "householdID"]
+
+# === 结局设置 ===
+outcome:
+  name: depression_bin
+  source: cesd
+  threshold: 10
+
+# === 划分设置（供 03 使用）===
+split:
+  val_size: 0.15
+  test_size: 0.15
+  n_splits: 20
+  strat_col: depression_bin
+  group_col: null
+
+# === 插补设置（供 06/07 使用）===
+imputation:
+  candidates: [mean_mode, knn5, mice_bayes, mice_cart, mice_pmm]
+  knn:
+    k: 5
+  iterative:
+    m: 5
+    max_iter: 20
+    tol: 0.0
+    n_nearest_features: 20
+  rf:
+    n_estimators: 200
+    max_depth: null
+    min_samples_leaf: 3
+    max_features: "sqrt"
+  flags:
+    enable_mice_rf: false   # 若想启用随机森林版 MICE，可改 true
+
+
+
+# === 评估设置 ===
+eval:
+  # 模型列表 (所有支持的模型)
+  models: [lr, rf, extra_trees, gb, adaboost, lgb, xgb, catboost]
+  
+  # 图表和阈值设置
+  make_plots: true
+  class_threshold: 0.5          # 当 use_val_thresholds=false 时使用
+  use_val_thresholds: true      # ✅ 只在 VAL 上挑阈值，并在 TEST/EXTERNAL 复用
+  
+  # GPU 加速设置
+  use_gpu: true                 # 启用GPU加速 (包括LightGBM, XGBoost, CatBoost)
+  
+  # XGBoost 特定设置
+  xgb_tree_method: gpu_hist     # GPU 加速使用的 tree_method
+  
+  # 断点续跑
+  resume: true                  # 启用断点续跑功能
+  
+  # 网格搜索设置 (供14_final_eval_s7.py使用)
+  final:
+    grid_level: medium          # 参数网格规模 (14_final_eval_s7.py会对LightGBM特殊处理为small)
+    cv_splits: 5                # 交叉验证折数
+    n_jobs: 4                   # 外层并行度

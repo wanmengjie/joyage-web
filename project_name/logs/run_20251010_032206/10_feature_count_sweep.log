@@ -1,0 +1,13 @@
+== C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\10_feature_count_sweep.py == 2025-10-10 03:22:32
+
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\10_feature_count_sweep.py", line 693, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\10_feature_count_sweep.py", line 520, in main
+    _need(MEAN_MODE_XY, "08_freeze_mean_mode.py")
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\10_feature_count_sweep.py", line 194, in _need
+    raise FileNotFoundError(f"缺少必要文件：{p}\n请先运行：{hint}")
+FileNotFoundError: 缺少必要文件：C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\frozen\charls_mean_mode_Xy.csv
+请先运行：08_freeze_mean_mode.py
+
+[exit] code=1

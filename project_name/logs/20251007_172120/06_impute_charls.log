@@ -1,0 +1,13 @@
+[dataset] charls
+[input ] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\with_nan\charls_Xy_with_nan.csv
+[output] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\02_processed_data\v2025-10-01\imputed\charls_mice_pmm_rep1_Xy.csv
+[age-filter] use 'agey' >= 60.0 -> kept 9639/9639 rows
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\06_impute_charls.py", line 379, in <module>
+    run(
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\06_impute_charls.py", line 296, in run
+    raise ValueError(f"y column '{y_name}' not in input!")
+ValueError: y column 'depression_bin' not in input!
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\06_impute_charls.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

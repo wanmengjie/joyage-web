@@ -1,0 +1,53 @@
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\regression\_prediction.py:75: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred_mean)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\genmod\families\links.py:198: RuntimeWarning: overflow encountered in exp
+  t = np.exp(-z)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\base\_prediction_inference.py:41: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\regression\_prediction.py:75: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred_mean)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\genmod\families\links.py:198: RuntimeWarning: overflow encountered in exp
+  t = np.exp(-z)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\base\_prediction_inference.py:41: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\regression\_prediction.py:75: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred_mean)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\genmod\families\links.py:198: RuntimeWarning: overflow encountered in exp
+  t = np.exp(-z)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\base\_prediction_inference.py:41: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\regression\_prediction.py:75: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred_mean)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\genmod\families\links.py:198: RuntimeWarning: overflow encountered in exp
+  t = np.exp(-z)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\base\_prediction_inference.py:41: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\regression\_prediction.py:75: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred_mean)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\genmod\families\links.py:198: RuntimeWarning: overflow encountered in exp
+  t = np.exp(-z)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\base\_prediction_inference.py:41: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\regression\_prediction.py:75: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred_mean)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\genmod\families\links.py:198: RuntimeWarning: overflow encountered in exp
+  t = np.exp(-z)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\base\_prediction_inference.py:41: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\regression\_prediction.py:75: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred_mean)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\genmod\families\links.py:198: RuntimeWarning: overflow encountered in exp
+  t = np.exp(-z)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\base\_prediction_inference.py:41: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\regression\_prediction.py:75: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred_mean)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\genmod\families\links.py:198: RuntimeWarning: overflow encountered in exp
+  t = np.exp(-z)
+C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\statsmodels\base\_prediction_inference.py:41: RuntimeWarning: invalid value encountered in sqrt
+  return np.sqrt(self.var_pred)
+[save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-03\figs\Fig2_RCS_train.png
+[done] RCS figure & CSVs ready.
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\20_fig2_rcs.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

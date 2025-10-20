@@ -1,0 +1,43 @@
+[model] lr
+  [save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\feature_sweep_cv_s4\rfe_curve_lr_cv.csv
+[model] rf
+  [save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\feature_sweep_cv_s4\rfe_curve_rf_cv.csv
+[model] extra_trees
+  [save] C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\10_experiments\v2025-10-01\feature_sweep_cv_s4\rfe_curve_extra_trees_cv.csv
+[model] gb
+Traceback (most recent call last):
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\10_feature_count_cv_s4.py", line 422, in <module>
+    main()
+  File "C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\10_feature_count_cv_s4.py", line 350, in main
+    pipe_k.fit(X_train_full.iloc[tr], y_train_full[tr])
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\pipeline.py", line 473, in fit
+    self._final_estimator.fit(Xt, y, **last_step_params["fit"])
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1473, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\ensemble\_gb.py", line 783, in fit
+    n_stages = self._fit_stages(
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\ensemble\_gb.py", line 879, in _fit_stages
+    raw_predictions = self._fit_stage(
+                      ^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\ensemble\_gb.py", line 490, in _fit_stage
+    tree.fit(
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 1466, in wrapper
+    estimator._validate_params()
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 668, in _validate_params
+    self.get_params(deep=False),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 243, in get_params
+    for key in self._get_param_names():
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenovo\AppData\Local\Programs\Python\Python312\Lib\site-packages\sklearn\base.py", line 196, in _get_param_names
+    @classmethod
+
+KeyboardInterrupt
+==> CMD: C:\Users\lenovo\AppData\Local\Programs\Python\Python312\python.exe -X utf8 C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\10_feature_count_cv_s4.py
+==> CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name
+

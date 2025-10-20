@@ -1,0 +1,7 @@
+=== Sanity Check Start ===
+[OK]   关键输入文件存在
+[info] mean_mode_Xy shape = (9639, 46)
+[FAIL] depression_bin 不是二分类
+# CMD: C:\Users\lenovo\anaconda3\python.exe C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts\00_sanity_checks.py
+# CWD: C:\Users\lenovo\Desktop\20250906 charls  klosa\project_name\03_scripts
+
