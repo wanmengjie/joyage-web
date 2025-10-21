@@ -1,6 +1,0 @@
-Dataset: iris
-Accuracy: 0.8889
-Precision(macro): 0.8981
-Recall(macro): 0.8889
-F1(macro): 0.8878
-ROC-AUC(macro, OVR): 0.9926
