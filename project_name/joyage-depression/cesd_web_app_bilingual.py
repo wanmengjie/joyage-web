@@ -26,7 +26,7 @@ from cesd_depression_model.config import CATEGORICAL_VARS, NUMERICAL_VARS
 
 # 页面配置
 st.set_page_config(
-    page_title="JoyAge悦龄抑郁风险评估平台 (45+)",
+    page_title="JoyAge悦龄抑郁风险评估平台 (60+)",
     page_icon="🧠",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -35,7 +35,7 @@ st.set_page_config(
 # 语言配置
 LANGUAGES = {
     'zh': {
-        'app_title': '🧠 JoyAge悦龄抑郁风险评估平台 (45+)',
+        'app_title': '🧠 JoyAge悦龄抑郁风险评估平台 (60+)',
         'language_select': '选择语言',
         'assessment_result': '评测结果',
         'low_risk_label': '低风险',
@@ -74,7 +74,7 @@ LANGUAGES = {
         'shap_y_axis': '特征'
     },
     'en': {
-        'app_title': '🧠 JoyAge Depression Risk Assessment Platform (45+)',
+        'app_title': '🧠 JoyAge Depression Risk Assessment Platform (60+)',
         'language_select': 'Select Language',
         'assessment_result': 'Assessment Result',
         'low_risk_label': 'Low Risk',
@@ -113,7 +113,7 @@ LANGUAGES = {
         'shap_y_axis': 'Features'
     },
     'ko': {
-        'app_title': '🧠 JoyAge 우울 위험 평가 플랫폼 (45+)',
+        'app_title': '🧠 JoyAge 우울 위험 평가 플랫폼 (60+)',
         'language_select': '언어 선택',
         'assessment_result': '평가 결과',
         'low_risk_label': '낮은 위험',
@@ -1256,7 +1256,7 @@ JOYAGE_INTRO = {
     'zh': """ 
 JoyAge悦龄平台致力于实现联合国“健康老龄化十年行动计划”的愿景，通过科学、精准的抑郁风险预测，为全球45岁以上中老年人群提供个性化心理健康评估服务。我们相信，每一位长者都应该拥有快乐、有尊严的晚年生活。""",
     'en': """
-JoyAge platform is dedicated to advancing the UN's "Decade of Healthy Ageing" vision by providing scientific and precise depression risk prediction for individuals aged 45+ globally. We believe every senior deserves a joyful and dignified later life.""",
+JoyAge platform is dedicated to advancing the UN's "Decade of Healthy Ageing" vision by providing scientific and precise depression risk prediction for individuals aged 60+ globally. We believe every senior deserves a joyful and dignified later life.""",
     'ko': """
 JoyAge 플랫폼은 UN 'Healthy Ageing 10년 행동계획'의 비전을 실현하기 위해 45세 이상을 대상으로 과학적·정밀한 우울 위험 예측을 제공합니다."""
 }
